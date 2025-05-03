@@ -4,6 +4,20 @@ import Cards from "./components/Cards";
 
 function App() {
   const [pokemonList, setPokemonList] = useState([]);
+  const [clickedCards, setClickedCards] = useState([]);
+  const [currentScore, setCurrentScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
+
+  useEffect(() => {
+    setPokemonList((prev) => {
+      const pokemonList = [...prev];
+      for (let i = pokemonList.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [pokemonList[i], pokemonList[j]] = [pokemonList[j], pokemonList[i]];
+      }
+      return pokemonList;
+    });
+  }, [clickedCards]);
 
   useEffect(() => {
     const fetchPokemon = async () => {
@@ -62,16 +76,24 @@ function App() {
         <div>
           <div>
             <h3 id="score-heading">Score: </h3>
-            <p id="score"></p>
+            <p id="score">{currentScore}</p>
           </div>
           <div>
             <h3 id="best-score-heading">Best Score: </h3>
-            <p id="best-score"></p>
+            <p id="best-score">{bestScore}</p>
           </div>
         </div>
       </header>
       <main>
-        <Cards pokemonList={pokemonList} />
+        <Cards
+          pokemonList={pokemonList}
+          clickedCards={clickedCards}
+          setClickedCards={setClickedCards}
+          setCurrentScore={setCurrentScore}
+          setBestScore={setBestScore}
+          currentScore={currentScore}
+          bestScore={bestScore}
+        />
       </main>
     </>
   );
