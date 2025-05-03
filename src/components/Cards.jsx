@@ -1,13 +1,11 @@
 import Card from "./Card";
 
-export default function Cards() {
-  const cards = [
-    {
-      id: crypto.randomUUID(),
-      "img-src": null,
-      name: null,
-    },
-  ];
-
-  return <></>;
+export default function Cards({ pokemonList }) {
+  return (
+    <>
+      {pokemonList.map((pokemon) => (
+        <Card key={pokemon.id} src={pokemon.src} name={pokemon.name} />
+      ))}
+    </>
+  );
 }
