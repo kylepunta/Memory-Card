@@ -7,6 +7,7 @@
 html,
 body {
   height: 100%;
+  font-family: "roboto";
 }
 
 body,
@@ -22,4 +23,46 @@ header {
   padding: 1em;
   background-color: #6391ec;
   color: yellow;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2em;
+  padding: 1em;
+}
+
+.card {
+  border: 6px solid #00286b;
+  border-radius: 1em;
+  background-color: white;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.card-image {
+  display: grid;
+  place-items: center;
+  background-color: azure;
+  border-radius: 1em;
+}
+
+.card-image > img {
+  height: auto;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 1em;
+}
+
+.card-name {
+  padding: 1em 0;
+  background-color: #00286b;
+  color: white;
+}
+
+.card-name > h1 {
+  text-align: center;
+  font-family: "lobster";
 }
