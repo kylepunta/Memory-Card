@@ -1,4 +1,5 @@
 import "./App.css";
+import Card from "./components/Card";
 
 function App() {
   return (
@@ -18,7 +19,18 @@ function App() {
           </div>
         </div>
       </header>
-      <main></main>
+      <main>
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+      </main>
     </>
   );
 }
