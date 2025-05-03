@@ -1,7 +1,58 @@
 import "./App.css";
-import Card from "./components/Card";
+import { useState, useEffect } from "react";
+import Cards from "./components/Cards";
 
 function App() {
+  const [pokemonList, setPokemonList] = useState([]);
+
+  useEffect(() => {
+    const fetchPokemon = async () => {
+      const pokemonNames = [
+        "pikachu",
+        "squirtle",
+        "charmander",
+        "bulbasaur",
+        "pidgey",
+        "eevee",
+        "magikarp",
+        "snorlax",
+        "jigglypuff",
+        "mew",
+      ];
+      try {
+        const responses = await Promise.all(
+          pokemonNames.map(async (name) => {
+            try {
+              const response = await fetch(
+                `https://pokeapi.co/api/v2/pokemon/${name}`
+              );
+              if (!response) {
+                console.warn(`Failed to fetch ${name}`, response.status);
+                return null;
+              }
+              const data = await response.json();
+              console.log(`${name} fetched: `, data);
+              return data;
+            } catch (error) {
+              console.error(`Error fetching ${name}`, console.error);
+              return null;
+            }
+          })
+        );
+        console.log(responses);
+        const responsesFormatted = responses.map((pokemon) => ({
+          id: pokemon.id,
+          src: pokemon.sprites.front_default,
+          name: pokemon.name,
+        }));
+        setPokemonList(responsesFormatted);
+      } catch (error) {
+        console.error("Failed to fetch PokeAPI", error);
+      }
+    };
+    fetchPokemon();
+  }, []);
+
   return (
     <>
       <header>
@@ -20,16 +71,7 @@ function App() {
         </div>
       </header>
       <main>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        <Cards pokemonList={pokemonList} />
       </main>
     </>
   );
