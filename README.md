@@ -1,12 +1,33 @@
-# React + Vite
+# Memory Card
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A memory card game, built with **HTML**, **CSS**, and **React**. This project demonstrates the use of the React useEffect hook and tests users' memory skills.
 
-Currently, two official plugins are available:
+## Technologies Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **HTML5** for page structure
+- **CSS3** for styling and responsive design
+- **React** for managing and rendering the frontend user interface
 
-## Expanding the ESLint configuration
+## Live Demo
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+[View Live Demo](https://kylepokemonmemorycardgame.netlify.app/)
+
+## How it works
+
+1. A deck of ten Pokémon cards is rendered on the user interface, along with a current score and best score displayed at the top right corner.
+2. When a user clicks on a card, the deck is shuffled and rerendered. If the user has not already clicked on that particular card, the current score is incremented by one.
+3. The user must try to click on all the cards without clicking on one that has already been selected. If a user clicks on a card they have already selected, the current score resets to zero and the best score is updated.
+
+## Screenshots
+
+
+![Memory Card Game](src/assets/screenshot.png)
+
+
+## Installation & Setup
+
+If you want to run this locally:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/kylepunta/Memory-Card.git
