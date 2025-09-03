@@ -21,7 +21,7 @@ A memory card game, built with **HTML**, **CSS**, and **React**. This project de
 ## Screenshots
 
 
-![Memory Card Game](screenshots/desktop-1.png)
+![Memory Card Game](src/assets/screenshot.png)
 
 
 ## Installation & Setup
